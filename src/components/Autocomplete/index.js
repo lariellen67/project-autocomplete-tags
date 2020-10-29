@@ -64,7 +64,7 @@ export default function Autocomplete({ suggestions }) {
     } else {
       suggestionsListComponent = (
         <NotFound>
-          <em>No suggestions, you suck!</em>
+          <p>No suggestions, you suck!</p>
         </NotFound>
       )
     }
