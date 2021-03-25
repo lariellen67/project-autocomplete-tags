@@ -69,6 +69,7 @@
           }
       ],
       "react/jsx-props-no-spreading": "off",
+      "linebreak-style": ["error", "windows"],
       "no-console": "error",
       "object-curly-newline": [
           "error",
