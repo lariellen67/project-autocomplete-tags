@@ -1,46 +1,51 @@
-import React, { useState, createRef } from 'react'
+/* eslint-disable linebreak-style */
+import React, { useState } from 'react'
 
 import {
-  Container, ListTags, Input, ListItem, Button, Wrapper,
+  Container, Tag, Input, Content, Button, Wrapper,
 } from './styled'
 
-let tagInput = createRef()
-
 export default function InputTag() {
-  const [tags, setTags] = useState([])
+  const [text, setText] = useState([])
+  const [value, setValue] = useState('')
 
   function removeTag(item) {
-    const newTag = [...tags]
+    const newTag = [...text]
     newTag.splice(item, 1)
-    setTags(newTag)
+    setText(newTag)
   }
 
   function inputKeyDown(e) {
     const data = e.target.value
     if (e.key === 'Enter' && data) {
-      if (tags.find(tag => tag.toLowerCase() === data.toLowerCase())) {
+      if (text.find(tag => tag.toLowerCase() === data.toLowerCase())) {
         return
       }
-      setTags([...tags, data])
-      tagInput.value = null
+      setText([...text, data])
+      setValue('')
     } else if (e.key === 'Backspace' && !data) {
-      removeTag(tags.length - 1)
+      removeTag(text.length - 1)
     }
   }
 
   return (
     <Container>
-      <ListTags>
-        { tags.map((tag, i) => (
-          <ListItem key={tag}>
-            {tag}
-            <Button type="button" onClick={() => { removeTag(i) }}>+</Button>
-          </ListItem>
+      <Tag>
+        {text.map((item, i) => (
+          <Content key={`unique-${item}`}>
+            {item}
+            <Button onClick={() => { removeTag(i) }}>+</Button>
+          </Content>
         ))}
         <Wrapper>
-          <Input type="text" onKeyDown={inputKeyDown} ref={c => { tagInput = c }} />
+          <Input
+            type="text"
+            onKeyDown={inputKeyDown}
+            value={value}
+            onChange={e => setValue(e.target.value)}
+          />
         </Wrapper>
-      </ListTags>
+      </Tag>
     </Container>
   )
 }

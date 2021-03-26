@@ -1,3 +1,4 @@
+/* eslint-disable linebreak-style */
 import styled from 'styled-components'
 
 import { colors } from '~/themes'
@@ -11,7 +12,7 @@ export const Container = styled.div`
   padding: 5px;
 `
 
-export const ListTags = styled.ul`
+export const Tag = styled.div`
   display: inline-flex;
   flex-wrap: wrap;
   margin: 0;
@@ -20,7 +21,7 @@ export const ListTags = styled.ul`
   list-style: none;
 `
 
-export const Wrapper = styled.li`
+export const Wrapper = styled.div`
   background: none;
   flex-grow: 1;
   padding: 0;
@@ -30,12 +31,13 @@ export const Button = styled.button`
   align-items: center;
   appearance: none;
   background: ${colors.GREY_FOUR};
-  border: none;
+  border: 0;
   border-radius: 50%;
   color: ${colors.GREY_ONE};
   display: inline-flex;
   font-size: 12px;
   height: 15px;
+  outline: none;
   justify-content: center;
   line-height: 0;
   margin-left: 8px;
@@ -44,7 +46,7 @@ export const Button = styled.button`
   width: 15px;
 `
 
-export const ListItem = styled.li`
+export const Content = styled.div`
   align-items: center;
   background: ${colors.PRIMARY};
   border-radius: 2px;
