@@ -1,8 +1,19 @@
+/* eslint-disable linebreak-style */
 import styled from 'styled-components'
 
 import { colors } from '~/themes'
 
 export const Container = styled.div`
+`
+export const Content = styled.div`
+  display: flex;
+  border: 1px solid ${colors.GREY_THREE};
+  background-color: ${colors.GREY_ONE};
+  padding: 5px;
+  margin: 5px 0px 0px;
+  width: 100%;
+  align-items: center;
+  border-radius: 2px;
 `
 
 export const List = styled.ul`
@@ -30,14 +41,35 @@ export const List = styled.ul`
   li:not(:last-of-type) {
   border-bottom: 1px solid ${colors.GREY_THREE};
   }
+
+  ::-webkit-scrollbar {
+    width: 3px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: rgba(204, 204, 204, 0.5);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    border: 0px solid transparent !important;
+    -webkit-box-shadow: inset 0 0 4px #d51;
+    border: 0;
+  }
 `
 
 export const Input = styled.input`
-  border: 1px solid ${colors.GREY_THREE};
-  padding: 10px;
-  margin: 5px 0px 0px;
-  width: 100%;
-  border-radius: 5px;
+ display: flex;
+ flex: 1;
+ background-color: #ff0;
+ border: 0;
+ outline: none;
+`
+
+export const Button = styled.button`
+  padding: 0;
+  border: 0;
+  outline: 0;
+  background-color: transparent;
 `
 
 export const NotFound = styled.div`

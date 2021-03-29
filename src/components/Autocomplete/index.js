@@ -1,15 +1,18 @@
+/* eslint-disable linebreak-style */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import React, { useState } from 'react'
+import { MdArrowDropDown, MdArrowDropUp } from 'react-icons/all'
 
 import PropTypes from 'prop-types'
 
-import { Container, NotFound, List, Input } from './styled'
+import {
+  Container, Content, NotFound, List, Input, Button,
+} from './styled'
 
 export default function Autocomplete({ suggestions }) {
-  const [activeSuggestion, setActiveSuggestion] = useState(0)
-  const [filteredSuggestions, setFilteredSuggestions] = useState([])
-  const [showSuggestions, setShowSuggestions] = useState(false)
+  const [filteredOptions, setFilteredOptions] = useState([])
+  const [showOptions, setShowOptions] = useState(false)
   const [userInput, setUserInput] = useState('')
   let suggestionsListComponent
 
@@ -18,44 +21,28 @@ export default function Autocomplete({ suggestions }) {
     const filtered = suggestions.filter(
       suggestion => suggestion.toLowerCase().indexOf(input.toLowerCase()) > -1,
     )
-    setActiveSuggestion(0)
-    setFilteredSuggestions(filtered)
-    setShowSuggestions(true)
+    setFilteredOptions(filtered)
+    setShowOptions(true)
     setUserInput(input)
   }
 
-  function onClick(e) {
-    const input = e.currentTarget.innerText
-    setActiveSuggestion(0)
-    setFilteredSuggestions([])
-    setShowSuggestions(false)
-    setUserInput(input)
+  function clickArrow() {
+    const filtered = suggestions
+    setFilteredOptions(filtered)
+    setShowOptions(!showOptions)
   }
 
-  function onKeyDown(e) {
-    if (e.keyCode === 13) {
-      setActiveSuggestion(0)
-      setShowSuggestions(false)
-      setUserInput(filteredSuggestions[activeSuggestion])
-    } else if (e.keyCode === 38) {
-      if (activeSuggestion === 0) {
-        return
-      }
-      setActiveSuggestion(activeSuggestion - 1)
-    } else if (e.keyCode === 40) {
-      if (activeSuggestion - 1 === filteredSuggestions.length) {
-        return
-      }
-      setActiveSuggestion(activeSuggestion + 1)
-    }
+  function handleSelectOption(value) {
+    setShowOptions(false)
+    setUserInput(value)
   }
 
-  if (showSuggestions && userInput) {
-    if (filteredSuggestions.length) {
+  if (showOptions) {
+    if (filteredOptions.length) {
       suggestionsListComponent = (
         <List>
-          {filteredSuggestions.map(suggestion => (
-            <li key={suggestion} onClick={onClick}>
+          {filteredOptions.map(suggestion => (
+            <li key={suggestion} value={suggestion} onClick={() => handleSelectOption(suggestion)}>
               {suggestion}
             </li>
           ))}
@@ -63,21 +50,27 @@ export default function Autocomplete({ suggestions }) {
       )
     } else {
       suggestionsListComponent = (
-        <NotFound>
-          <p>No suggestions, you suck!</p>
-        </NotFound>
+        <List>
+          <NotFound>
+            <p>No suggestions, you suck!</p>
+          </NotFound>
+        </List>
       )
     }
   }
 
   return (
     <Container>
-      <Input
-        type="text"
-        onChange={onChange}
-        onKeyDown={onKeyDown}
-        value={userInput}
-      />
+      <Content>
+        <Input
+          type="text"
+          onChange={onChange}
+          value={userInput}
+        />
+        <Button onClick={clickArrow}>
+          {showOptions ? <MdArrowDropDown size={15} /> : <MdArrowDropUp size={15} />}
+        </Button>
+      </Content>
       {suggestionsListComponent}
     </Container>
   )
