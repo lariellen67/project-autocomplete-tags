@@ -18,7 +18,6 @@ export const Tag = styled.div`
   margin: 0;
   padding: 0;
   width: 100%;
-  list-style: none;
 `
 
 export const Wrapper = styled.div`

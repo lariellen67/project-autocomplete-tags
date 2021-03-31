@@ -1,4 +1,5 @@
 /* eslint-disable linebreak-style */
+/* eslint-disable no-console */
 import React, { useState } from 'react'
 
 import {
@@ -27,6 +28,8 @@ export default function InputTag() {
       removeTag(text.length - 1)
     }
   }
+  console.log(text, 'text')
+  console.log(value, 'value')
 
   return (
     <Container>

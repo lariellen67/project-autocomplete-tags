@@ -1,4 +1,5 @@
 /* eslint-disable linebreak-style */
+/* eslint-disable no-console */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import React, { useState } from 'react'
@@ -7,13 +8,15 @@ import { MdArrowDropDown, MdArrowDropUp } from 'react-icons/all'
 import PropTypes from 'prop-types'
 
 import {
-  Container, AutocompleteGroup, NotFound, List, Item, Input, Touchable,
+  Container, Content, Button, Tag, AutocompleteGroup, NotFound, List, Item, Input, Touchable,
 } from './styled'
 
 export default function Autocomplete({ suggestions }) {
   const [filteredOptions, setFilteredOptions] = useState([])
   const [showOptions, setShowOptions] = useState(false)
-  const [userInput, setUserInput] = useState()
+  const [userInput, setUserInput] = useState('')
+  const [tagArray, setTagArray] = useState([])
+
   let suggestionsListComponent
 
   function handleUserInput(e) {
@@ -34,8 +37,15 @@ export default function Autocomplete({ suggestions }) {
 
   function handleSelectOption(value) {
     setShowOptions(false)
-    setUserInput(value)
+    if (tagArray.find(tag => tag.toLowerCase() === value.toLowerCase())) {
+      return
+    }
+    setTagArray([...tagArray, value])
+    setUserInput('')
   }
+
+  console.log(userInput, 'userinput')
+  console.log(tagArray, 'tagArray')
 
   if (showOptions) {
     if (filteredOptions.length) {
@@ -59,17 +69,46 @@ export default function Autocomplete({ suggestions }) {
     }
   }
 
+  function removeTag(item) {
+    const newTag = [...tagArray]
+    newTag.splice(item, 1)
+    setTagArray(newTag)
+  }
+
+  function inputKeyDown(e) {
+    const data = e.target.value
+    if (e.key === 'Enter' && data) {
+      if (tagArray.find(tag => tag.toLowerCase() === data.toLowerCase())) {
+        return
+      }
+      setTagArray([...tagArray, data])
+      setUserInput('')
+    } else if (e.key === 'Backspace' && !data) {
+      removeTag(tagArray.length - 1)
+    }
+  }
+
   return (
     <Container>
       <AutocompleteGroup>
-        <Input
-          type="text"
-          onChange={handleUserInput}
-          value={userInput}
-        />
-        <Touchable onClick={handleOpenOptions}>
-          {showOptions ? <MdArrowDropDown size={15} /> : <MdArrowDropUp size={15} />}
-        </Touchable>
+        <Tag>
+
+          {tagArray.map((item, i) => (
+            <Content key={`unique-${item}`}>
+              {item}
+              <Button onClick={() => { removeTag(i) }}>+</Button>
+            </Content>
+          ))}
+          <Input
+            type="text"
+            onKeyDown={inputKeyDown}
+            onChange={handleUserInput}
+            value={userInput}
+          />
+          <Touchable onClick={handleOpenOptions}>
+            {showOptions ? <MdArrowDropDown size={15} /> : <MdArrowDropUp size={15} />}
+          </Touchable>
+        </Tag>
       </AutocompleteGroup>
       {suggestionsListComponent}
     </Container>

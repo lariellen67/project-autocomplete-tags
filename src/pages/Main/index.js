@@ -1,7 +1,9 @@
+/* eslint-disable linebreak-style */
 import React from 'react'
 
 import Autocomplete from '~/components/Autocomplete'
 import InputTag from '~/components/InputTag'
+import Multiple from '~/components/Multiple'
 
 import { Container, Content, Title } from './styled'
 
@@ -38,6 +40,16 @@ export default function Main() {
         />
         <Title>Now here you can classify</Title>
         <InputTag />
+        <Title>And find another Bey success</Title>
+        <Multiple suggestions={[
+          'Crazy in Love',
+          'Sorry',
+          'Formation',
+          'Halo',
+          'Flawless',
+          'Single Ladies',
+        ]}
+        />
       </Content>
     </Container>
   )
