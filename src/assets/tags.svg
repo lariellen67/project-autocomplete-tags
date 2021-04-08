@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="148" height="100" viewBox="0 0 148 100">
+  <g id="Retângulo_113" data-name="Retângulo 113" fill="#f3f3f3" stroke="#BFBEC1" stroke-width="1" >
+    <rect width="148" height="28" rx="4" stroke="none"/>
+    <rect x="0.5" y="0.5" width="147" height="27" rx="3.5" fill="none"/>
+  </g>
+  <line id="Linha_32" data-name="Linha 32" y2="27" transform="translate(119.5 0.5)" fill="none" stroke="#858489" stroke-width="1" opacity="0.5"/>
+  <rect id="Retângulo_114" data-name="Retângulo 114" width="104" height="13" transform="translate(9 8)" fill="#858489" opacity="0.5"/>
+  <path id="Icon_material-close" data-name="Icon material-close" d="M15.5,8.306,14.694,7.5,11.5,10.694,8.306,7.5,7.5,8.306,10.694,11.5,7.5,14.694l.806.806L11.5,12.306,14.694,15.5l.806-.806L12.306,11.5Z" transform="translate(122 2.5)" fill="#858489" opacity="0.8"/>
+  <g id="Retângulo_113-2" data-name="Retângulo 113" transform="translate(0 36)" fill="#f3f3f3" stroke="#BFBEC1" stroke-width="1">
+    <rect width="148" height="28" rx="4" stroke="none"/>
+    <rect x="0.5" y="0.5" width="147" height="27" rx="3.5" fill="none"/>
+  </g>
+  <line id="Linha_32-2" data-name="Linha 32" y2="27" transform="translate(119.5 36.5)" fill="none" stroke="#858489" stroke-width="1" opacity="0.5"/>
+  <rect id="Retângulo_114-2" data-name="Retângulo 114" width="104" height="13" transform="translate(9 44)" fill="#858489" opacity="0.5"/>
+  <path id="Icon_material-close-2" data-name="Icon material-close" d="M15.5,8.306,14.694,7.5,11.5,10.694,8.306,7.5,7.5,8.306,10.694,11.5,7.5,14.694l.806.806L11.5,12.306,14.694,15.5l.806-.806L12.306,11.5Z" transform="translate(122 38.5)" fill="#858489" opacity="0.8"/>
+  <g id="Retângulo_113-3" data-name="Retângulo 113" transform="translate(0 72)" fill="#f3f3f3" stroke="#BFBEC1" stroke-width="1">
+    <rect width="148" height="28" rx="4" stroke="none"/>
+    <rect x="0.5" y="0.5" width="147" height="27" rx="3.5" fill="none"/>
+  </g>
+  <line id="Linha_32-3" data-name="Linha 32" y2="27" transform="translate(119.5 72.5)" fill="none" stroke="#858489" stroke-width="1" opacity="0.5"/>
+  <rect id="Retângulo_114-3" data-name="Retângulo 114" width="104" height="13" transform="translate(9 80)" fill="#858489" opacity="0.5"/>
+  <path id="Icon_material-close-3" data-name="Icon material-close" d="M15.5,8.306,14.694,7.5,11.5,10.694,8.306,7.5,7.5,8.306,10.694,11.5,7.5,14.694l.806.806L11.5,12.306,14.694,15.5l.806-.806L12.306,11.5Z" transform="translate(122 74.5)" fill="#858489" opacity="0.8"/>
+</svg>

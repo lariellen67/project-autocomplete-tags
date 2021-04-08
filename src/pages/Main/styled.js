@@ -1,3 +1,4 @@
+/* eslint-disable linebreak-style */
 import styled from 'styled-components'
 
 import { colors } from '~/themes'
@@ -8,7 +9,8 @@ export const Container = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-color: ${colors.GREY_SIX};
+  background-color: #000000;
+  overflow: hidden;
 `
 
 export const Content = styled.div`
