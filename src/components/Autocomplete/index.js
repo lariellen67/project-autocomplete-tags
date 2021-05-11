@@ -18,7 +18,7 @@ export default function Autocomplete({ suggestions }) {
 
   function handleUserInput(e) {
     const input = e.currentTarget.value
-    const filtered = suggestions.filter(
+    const filtered = suggestions?.filter(
       suggestion => suggestion.toLowerCase().indexOf(input.toLowerCase()) > -1,
     )
     setFilteredOptions(filtered)

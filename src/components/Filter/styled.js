@@ -22,7 +22,7 @@ export const Content = styled.div`
   margin: 50px auto;
   z-index: 1;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.07);
-  background: #ffffff;
+  background-color: #ffffff;
 `
 
 export const Header = styled.div`
@@ -65,7 +65,6 @@ export const Column = styled.div`
   width: 100%;
   height: 65vh;
   padding: 12px;
-  /* background-color: #ff0; */
   background-color: transparent;
 
   &:not(:last-of-type) {
@@ -92,10 +91,6 @@ export const Option = styled.span`
   background-color: transparent;
   cursor: pointer;
   margin: 2px 0;
-
-  &:focus{
-    border: 1px solid #ff0;
-  }
 `
 
 export const OptionText = styled.p`
@@ -137,15 +132,55 @@ export const Message = styled.p`
   opacity: 0.6;
 `
 
+export const Row = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  align-items: center;
+`
+
+export const Label = styled.p`
+  font-size: 14px;
+  font-family: 'Roboto Light', sans-serif;
+  color: #27262E;
+  background-color: #ff0;
+  padding: 0;
+  opacity: 0.6;
+`
+
 export const Footer = styled.div`
   border-top: 1px solid #DBDBDB;
   display: flex;
   justify-content: flex-end;
+  padding: 8px 18px 0 0;
+`
+export const Clear = styled.button`
+  border: 0;
+  outline: none;
+  background-color: transparent;
+  margin-right: 4px;
+  border: 1px solid #DBDBDB;
+  border-radius: 3px;
+  padding: 4px 16px;
+  font-size: 12px;
+  font-family: 'Roboto', sans-serif;
+  color: #27262E;
+  opacity: 0.6;
+`
+export const Apply = styled.button`
+  border: 0;
+  outline: none;
+  background-color: #5AB679;
+  color: #ffffff;
+  border-radius: 3px;
+  padding: 4px 16px;
+  font-size: 12px;
+  font-family: 'Roboto', sans-serif;
 `
 
 export const Overlay = styled.div`
   width: 100vw;
   height: 100vh;
   z-index: 0;
-  background: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.5);
 `

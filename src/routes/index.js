@@ -2,7 +2,7 @@
 import React from 'react'
 import { Switch, Route, BrowserRouter } from 'react-router-dom'
 
-import Main from '~/pages/Main/modal'
+import Main from '~/pages/Main/switch'
 
 const Router = () => (
   <BrowserRouter>

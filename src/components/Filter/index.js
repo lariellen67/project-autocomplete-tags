@@ -1,4 +1,5 @@
 /* eslint-disable linebreak-style */
+/* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable no-console */
 /* eslint-disable react/prop-types */
 import React from 'react'
@@ -21,7 +22,11 @@ import {
   Illustration,
   Text,
   Message,
+  // Row,
+  // Label,
   Footer,
+  Clear,
+  Apply,
   Overlay,
 } from './styled'
 
@@ -47,11 +52,24 @@ function Modal({ visible, close, columns, type, ...rest }) {
   }
 
   const Status = () => {
-    const status = 'status'
+    function onChangeValue(e) {
+      console.log(e.target.value)
+    }
+
     return (
       <>
         <SectionTitle>Filtro Status</SectionTitle>
-        <p>{status}</p>
+        <div onChange={onChangeValue}>
+          <input type="radio" value="1" name="gender" />
+          <span>Liberado</span>
+          <br />
+          <input type="radio" value="2" name="gender" />
+          <span>Bloqueado</span>
+          <br />
+          <input type="radio" value="3" name="gender" />
+          <span>Indefinido</span>
+          <br />
+        </div>
       </>
     )
   }
@@ -101,7 +119,8 @@ function Modal({ visible, close, columns, type, ...rest }) {
               </Column>
             </Wrapper>
             <Footer>
-              <span>lala</span>
+              <Clear>Limpar</Clear>
+              <Apply>Aplicar</Apply>
             </Footer>
           </Content>
           <Overlay onClick={close} />
