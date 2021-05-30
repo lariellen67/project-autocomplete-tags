@@ -7,7 +7,6 @@
 }
 
 .toggle-switch-label {
-  /* display: block; */
   width: 40px;
   height: 25px;
   background-color:#bbb;
@@ -31,19 +30,6 @@
   background-color: yellowgreen;
   transition: margin 0.3s ease-in 0s;
 }
-
-/* .toggle-switch-inner:before, .toggle-switch-inner:after {
-  display: block;
-  float: left;
-  width: 50%;
-  height: 34px;
-  padding: 0;
-  line-height: 34px;
-  font-size: 14px;
-  font-weight: bold;
-  background-color: teal;
-  box-sizing: border-box;
-} */
 
 .toggle-switch-inner:before {
   content: attr(data-yes);
